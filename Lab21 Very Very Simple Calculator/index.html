@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+</head>
+<body>
+    <script>
+        function calculate(operation) {
+            var value1 = parseFloat(document.getElementById("value1").value);
+            var value2 = parseFloat(document.getElementById("value2").value);
+            var result;
+
+            if (isNaN(value1) || isNaN(value2)) {
+                result = "Invalid input. Please enter numbers.";
+            } else {
+                switch (operation) {
+                    case '+':
+                        result = value1 + value2;
+                        break;
+                    case '-':
+                        result = value1 - value2;
+                        break;
+                    case '*':
+                        result = value1 * value2;
+                        break;
+                    case '/':
+                        result = value2 === 0 ? "Cannot divide by zero" : value1 / value2;
+                        break;
+                    default:
+                        result = "Invalid operation";
+                }
+            }
+
+            document.getElementById("result").innerHTML = result;
+        }
+    </script>
+    <h1>Simple Calculator</h1>
+    <form action="javascript:void(0);">
+        Value1: <input type="text" id="value1"><br>
+        Value2: <input type="text" id="value2"><br>
+        Result: <span id="result"></span> <br><br>
+
+        <input type="button" value="Sum" onclick="calculate('+')">
+        <input type="button" value="Subtract" onclick="calculate('-')">
+        <input type="button" value="Multiply" onclick="calculate('*')">
+        <input type="button" value="Divide" onclick="calculate('/')">
+    </form>
+</body>
+</html>
